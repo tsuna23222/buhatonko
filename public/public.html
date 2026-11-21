@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Profile – BuhatonKo</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <h1>Edit your profile</h1>
+
+  <form id="profile-form">
+    <label>School<br><input type="text" name="school"></label><br><br>
+    <label>Skills (comma separated)<br>
+      <input type="text" name="skills" placeholder="Graphic design, Video editing"></label><br><br>
+    <label>Avatar image URL<br><input type="url" name="avatar_url"></label><br><br>
+    <label>Bio<br><textarea name="bio" rows="5" cols="40" maxlength="1000"></textarea></label><br><br>
+    <button type="submit">Save profile</button>
+  </form>
+
+  <p id="message"></p>
+  <p><a href="/">← Home</a></p>
+
+  <script src="/js/profile-edit.js"></script>
+</body>
+</html>

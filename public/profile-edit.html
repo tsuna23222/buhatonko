@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit profile – BuhatonKo</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<main class="container">
+    <div class="card form-card">
+      <h1>Edit your profile</h1>
+      <form id="profile-form">
+        <label>School<input type="text" name="school" maxlength="150" placeholder="University of Cebu"></label>
+        <label>Skills (comma separated)<input type="text" name="skills" maxlength="500" placeholder="Graphic design, Video editing"></label>
+        <label>Avatar image URL<input type="url" name="avatar_url" placeholder="https://..."></label>
+        <label>Bio<textarea name="bio" rows="5" maxlength="1000" placeholder="Tell other students what you're good at."></textarea></label>
+        <button type="submit">Save profile</button>
+      </form>
+      <p id="message"></p>
+    </div>
+  </main>
+
+  <footer class="footer">BuhatonKo · A student-to-student freelance marketplace</footer>
+
+  <script src="/js/common.js"></script>
+  <script src="/js/profile-edit.js"></script>
+</body>
+</html>

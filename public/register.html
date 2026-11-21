@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign up – BuhatonKo</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<main class="container">
+    <div class="card form-narrow">
+      <h1>Create your account</h1>
+      <form id="register-form">
+        <label>Full name<input type="text" name="full_name" maxlength="100" required></label>
+        <label>Email<input type="email" name="email" required></label>
+        <label>Password<input type="password" name="password" minlength="8" required></label>
+        <button type="submit">Sign up</button>
+      </form>
+      <p id="message"></p>
+      <p class="muted">Already have an account? <a href="/login.html">Log in</a></p>
+    </div>
+  </main>
+
+  <footer class="footer">BuhatonKo · A student-to-student freelance marketplace</footer>
+
+  <script src="/js/common.js"></script>
+  <script src="/js/register.js"></script>
+</body>
+</html>
