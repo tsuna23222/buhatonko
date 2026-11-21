@@ -92,6 +92,7 @@ async function renderNav() {
   if (user) {
     links.push(
       el("a", { href: "/dashboard.html" }, "Dashboard"),
+      user.role === "admin" ? el("a", { href: "/admin.html" }, "Admin") : null,
       el("a", { href: "/service-form.html", className: "btn btn-small" }, "+ Offer a service"),
       el("a", { href: "/profile.html?id=" + user.id }, user.full_name),
       el("button", {
@@ -126,6 +127,23 @@ async function requireUser() {
     throw new Error("Not logged in");
   }
   return user;
+}
+
+// Shows a "Report" button that flags a service or a student for the admin
+function reportButton(targetType, targetId) {
+  return el("button", {
+    className: "link-button",
+    style: "font-size:0.85rem",
+    onclick: async () => {
+      const reason = prompt("Why are you reporting this? (e.g. scam, unsafe, cheating, harassment)");
+      if (!reason) return;
+      const { ok, data } = await api("/api/reports", {
+        method: "POST",
+        body: { target_type: targetType, target_id: targetId, reason },
+      });
+      alert(ok ? data.message : data.error);
+    },
+  }, "⚑ Report");
 }
 
 // A service card used on the homepage, browse page and profiles

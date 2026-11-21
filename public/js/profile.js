@@ -24,7 +24,8 @@ async function load() {
     el("p", { className: "muted" }, p.completed_jobs + " completed job" + (p.completed_jobs == 1 ? "" : "s")),
     p.skills ? el("p", {}, el("strong", {}, "Skills: "), p.skills) : null,
     el("p", { className: "pre" }, p.bio || "No bio yet."),
-    isMe ? el("a", { href: "/profile-edit.html", className: "btn" }, "Edit profile") : null
+    isMe ? el("a", { href: "/profile-edit.html", className: "btn" }, "Edit profile") : null,
+    user && !isMe ? reportButton("user", p.id) : null
   );
 
   const services = el("div", { className: "grid" });

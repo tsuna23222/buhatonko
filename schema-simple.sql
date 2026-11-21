@@ -46,7 +46,6 @@ CREATE TABLE IF NOT EXISTS services (
   status         ENUM('active', 'paused') NOT NULL DEFAULT 'active',
   created_at     TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at     TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-  FOREIGN KEY (category_id) REFERENCES categories(id)
 );
 
 -- 5. Jobs: a customer requests a service from a provider
@@ -63,7 +62,6 @@ CREATE TABLE IF NOT EXISTS jobs (
                NOT NULL DEFAULT 'requested',
   created_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-  FOREIGN KEY (customer_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
 -- 6. Who changed a job's status, and when
@@ -82,7 +80,6 @@ CREATE TABLE IF NOT EXISTS messages (
   sender_id   INT NOT NULL,
   body        TEXT NOT NULL,
   created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-  FOREIGN KEY (sender_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
 -- 8. Reviews: one per completed job, written by the customer
@@ -94,7 +91,6 @@ CREATE TABLE IF NOT EXISTS reviews (
   rating       TINYINT NOT NULL,
   comment      TEXT,
   created_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-  FOREIGN KEY (reviewer_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
 -- Starting categories (INSERT IGNORE skips ones that already exist)

@@ -95,7 +95,8 @@ async function load() {
       el("h3", {}, el("a", { href: "/profile.html?id=" + s.provider_id }, s.provider_name)),
       el("p", { className: "muted" }, s.is_verified ? "✔ Verified student" : "Not yet verified"),
       s.school ? el("p", { className: "muted" }, "🎓 " + s.school) : null,
-      s.skills ? el("p", { className: "muted" }, "Skills: " + s.skills) : null
+      s.skills ? el("p", { className: "muted" }, "Skills: " + s.skills) : null,
+      user && !s.is_owner ? reportButton("service", s.id) : null
     ),
     el("br"),
     actionBox
